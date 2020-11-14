@@ -32,18 +32,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLAN = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
-            this.playername = new System.Windows.Forms.TextBox();
+            this.playerturn = new System.Windows.Forms.TextBox();
             this.prcbCountDown = new System.Windows.Forms.ProgressBar();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.picturematch = new System.Windows.Forms.PictureBox();
             this.logocarogame = new System.Windows.Forms.Panel();
             this.panelchessboard = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturematch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,15 +80,15 @@
             this.txbIP.Size = new System.Drawing.Size(180, 20);
             this.txbIP.TabIndex = 1;
             // 
-            // playername
+            // playerturn
             // 
-            this.playername.BackColor = System.Drawing.SystemColors.Window;
-            this.playername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playername.Font = new System.Drawing.Font("Ink Free", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playername.Location = new System.Drawing.Point(680, 209);
-            this.playername.Name = "playername";
-            this.playername.Size = new System.Drawing.Size(167, 60);
-            this.playername.TabIndex = 0;
+            this.playerturn.BackColor = System.Drawing.SystemColors.Window;
+            this.playerturn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.playerturn.Font = new System.Drawing.Font("Ink Free", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerturn.Location = new System.Drawing.Point(680, 209);
+            this.playerturn.Name = "playerturn";
+            this.playerturn.Size = new System.Drawing.Size(167, 60);
+            this.playerturn.TabIndex = 0;
             // 
             // prcbCountDown
             // 
@@ -102,33 +97,6 @@
             this.prcbCountDown.Name = "prcbCountDown";
             this.prcbCountDown.Size = new System.Drawing.Size(156, 55);
             this.prcbCountDown.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(22, 275);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 160);
-            this.panel1.TabIndex = 4;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox2.Location = new System.Drawing.Point(88, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 68);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(37, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // picturematch
             // 
@@ -173,8 +141,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(920, 476);
             this.Controls.Add(this.panelchessboard);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.playername);
+            this.Controls.Add(this.playerturn);
             this.Controls.Add(this.picturematch);
             this.Controls.Add(this.prcbCountDown);
             this.Controls.Add(this.panel3);
@@ -185,9 +152,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturematch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,14 +163,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnLAN;
         private System.Windows.Forms.TextBox txbIP;
-        private System.Windows.Forms.TextBox playername;
+        private System.Windows.Forms.TextBox playerturn;
         private System.Windows.Forms.ProgressBar prcbCountDown;
         private System.Windows.Forms.Timer tmCoolDown;
         private System.Windows.Forms.PictureBox picturematch;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panelchessboard;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;

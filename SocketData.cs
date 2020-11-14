@@ -47,6 +47,7 @@ namespace CAROGAME
         NEW_GAME,
         UNDO,
         END_GAME,
-        QUIT
+        QUIT,
+        TIME_OUT
     }
 }
