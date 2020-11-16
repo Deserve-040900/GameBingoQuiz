@@ -146,9 +146,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelchessboard.BackColor = System.Drawing.Color.Transparent;
             this.panelchessboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelchessboard.Location = new System.Drawing.Point(292, 95);
+            this.panelchessboard.Location = new System.Drawing.Point(287, 104);
             this.panelchessboard.Name = "panelchessboard";
-            this.panelchessboard.Size = new System.Drawing.Size(295, 340);
+            this.panelchessboard.Size = new System.Drawing.Size(289, 315);
             this.panelchessboard.TabIndex = 0;
             // 
             // tmCountDown
@@ -178,21 +178,21 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
