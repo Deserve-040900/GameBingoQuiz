@@ -36,8 +36,8 @@ namespace CAROGAME
             set { matrix = value; }
         }
 
-        private event EventHandler playerMarked;
-        public event EventHandler PlayerMarked
+        private event EventHandler<ButtonClickEvent> playerMarked;
+        public event EventHandler<ButtonClickEvent> PlayerMarked
         {
             add
             {
@@ -99,12 +99,12 @@ namespace CAROGAME
         public void Drawchessboard()
         {
             chessboard.Enabled = true;
-            Matrix(new List<List<Button>>());
+            Matrix = (new List<List<Button>>());
 
             Button oldbutton = new Button { Width = 0, Location = new Point(0, 0) };
             for (int i = 0; i < Constains.chessboardheight; i++)
             {
-                Matrix().Add(new List<Button>());
+                Matrix.Add(new List<Button>());
                 for (int j = 0; j < Constains.chessboardwidth; j++)
                 {
                     Button btn = new Button()
@@ -121,7 +121,7 @@ namespace CAROGAME
                     
                     Chessboard.Controls.Add(btn);
 
-                    Matrix()[i].Add(btn);
+                    Matrix[i].Add(btn);
 
                     oldbutton = btn;
 
@@ -149,8 +149,29 @@ namespace CAROGAME
 
             if (playerMarked != null)
             {
-                playerMarked(this, new EventArgs());
+                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
             }   
+
+            if (isEndGame(btn))
+            {
+                EndGame();
+            }
+        }
+
+        public void OtherPlayerMark(Point point)
+        {
+            Button btn = Matrix[point.Y][point.X];
+
+            if (btn.BackgroundImage != null)
+                return;
+
+            Mark(btn);
+
+            PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), currentplayer));
+
+            currentplayer = currentplayer == 1 ? 0 : 1;
+
+            ChangePlayer();
 
             if (isEndGame(btn))
             {
@@ -164,6 +185,44 @@ namespace CAROGAME
                 endedGame(this, new EventArgs());
         }
 
+        public bool Undo()
+        {
+            if (PlayTimeLine.Count <= 0)
+                return false;
+
+            bool isUndo1 = UndoAStep();
+            bool isUndo2 = UndoAStep();
+
+            PlayInfo oldPoint = PlayTimeLine.Peek();
+            currentplayer = oldPoint.CurrentPlayer == 1 ? 0 : 1;
+
+            return isUndo1 && isUndo2;
+        }
+
+        private bool UndoAStep()
+        {
+            if (PlayTimeLine.Count <= 0)
+                return false;
+
+            PlayInfo oldPoint = PlayTimeLine.Pop();
+            Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
+
+            btn.BackgroundImage = null;
+
+            if (PlayTimeLine.Count <= 0)
+            {
+                currentplayer = 0;
+            }
+            else
+            {
+                oldPoint = PlayTimeLine.Peek();
+            }
+
+            ChangePlayer();
+
+            return true;
+        }
+
         private bool isEndGame(Button btn)
         {
             return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
@@ -172,7 +231,7 @@ namespace CAROGAME
         private Point GetChessPoint(Button btn)
         {
             int vertical = Convert.ToInt32(btn.Tag);
-            int horizontal = Matrix()[vertical].IndexOf(btn);
+            int horizontal = Matrix[vertical].IndexOf(btn);
 
             Point point = new Point(horizontal, vertical);
 
@@ -187,7 +246,7 @@ namespace CAROGAME
             int countLeft = 0;
             for (int i = point.X; i >= 0; i--)
             {
-                if (Matrix()[point.Y][i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y][i].BackgroundImage == btn.BackgroundImage)
                 {
                     countLeft++;
                 }
@@ -198,7 +257,7 @@ namespace CAROGAME
             int countRight = 0;
             for (int i = point.X + 1; i < Constains.chessboardwidth; i++)
             {
-                if (Matrix()[point.Y][i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y][i].BackgroundImage == btn.BackgroundImage)
                 {
                     countRight++;
                 }
@@ -215,7 +274,7 @@ namespace CAROGAME
             int countTop = 0;
             for (int i = point.Y; i >= 0; i--)
             {
-                if (Matrix()[i][point.X].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[i][point.X].BackgroundImage == btn.BackgroundImage)
                 {
                     countTop++;
                 }
@@ -226,7 +285,7 @@ namespace CAROGAME
             int countBottom = 0;
             for (int i = point.Y + 1; i < Constains.chessboardheight; i++)
             {
-                if (Matrix()[i][point.X].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[i][point.X].BackgroundImage == btn.BackgroundImage)
                 {
                     countBottom++;
                 }
@@ -246,7 +305,7 @@ namespace CAROGAME
                 if (point.X - i < 0 || point.Y - i < 0)
                     break;
 
-                if (Matrix()[point.Y - i][point.X - i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y - i][point.X - i].BackgroundImage == btn.BackgroundImage)
                 {
                     countTop++;
                 }
@@ -260,7 +319,7 @@ namespace CAROGAME
                 if (point.Y + i >= Constains.chessboardheight || point.X + i >= Constains.chessboardwidth)
                     break;
 
-                if (Matrix()[point.Y + i][point.X + i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y + i][point.X + i].BackgroundImage == btn.BackgroundImage)
                 {
                     countBottom++;
                 }
@@ -280,7 +339,7 @@ namespace CAROGAME
                 if (point.X + i > Constains.chessboardwidth || point.Y - i < 0)
                     break;
 
-                if (Matrix()[point.Y - i][point.X + i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y - i][point.X + i].BackgroundImage == btn.BackgroundImage)
                 {
                     countTop++;
                 }
@@ -294,7 +353,7 @@ namespace CAROGAME
                 if (point.Y + i >= Constains.chessboardheight || point.X - i < 0)
                     break;
 
-                if (Matrix()[point.Y + i][point.X - i].BackgroundImage == btn.BackgroundImage)
+                if (Matrix[point.Y + i][point.X - i].BackgroundImage == btn.BackgroundImage)
                 {
                     countBottom++;
                 }
@@ -325,6 +384,20 @@ namespace CAROGAME
 
     }
     #endregion
+    public class ButtonClickEvent : EventArgs
+    {
+        private Point clickedPoint;
 
+        public Point ClickedPoint
+        {
+            get { return clickedPoint; }
+            set { clickedPoint = value; }
+        }
+
+        public ButtonClickEvent(Point point)
+        {
+            this.ClickedPoint = point;
+        }
+    }
 
 }

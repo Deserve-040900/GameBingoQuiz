@@ -82,11 +82,11 @@ namespace CAROGAME
         {
             return target.Receive(data) == 1 ? true : false;
         }
-        /// <summary>
-        /// Nén đối tượng thành mảng byte[]
-        /// </summary>
-        /// <param name="o"></param>
-        /// <returns></returns>
+        // <summary>
+        // Nén đối tượng thành mảng byte[]
+        // </summary>
+        // <param name="o"></param>
+        // <returns></returns>
         public byte[] SerializeData(Object o)
         {
             MemoryStream ms = new MemoryStream();
@@ -95,11 +95,11 @@ namespace CAROGAME
             return ms.ToArray();
         }
 
-        /// <summary>
-        /// Giải nén mảng byte[] thành đối tượng object
-        /// </summary>
-        /// <param name="theByteArray"></param>
-        /// <returns></returns>
+        // <summary>
+        // Giải nén mảng byte[] thành đối tượng object
+        // </summary>
+        // <param name="theByteArray"></param>
+        // <returns></returns>
         public object DeserializeData(byte[] theByteArray)
         {
             MemoryStream ms = new MemoryStream(theByteArray);
@@ -108,11 +108,11 @@ namespace CAROGAME
             return bf1.Deserialize(ms);
         }
 
-        /// <summary>
-        /// Lấy ra IP V4 của card mạng đang dùng
-        /// </summary>
-        /// <param name="_type"></param>
-        /// <returns></returns>
+        // <summary>
+        // Lấy ra IP V4 của card mạng đang dùng
+        // </summary>
+        // <param name="_type"></param>
+        // <returns></returns>
         public string GetLocalIPv4(NetworkInterfaceType _type)
         {
             string output = "";

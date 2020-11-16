@@ -1,0 +1,10 @@
+C:\Users\User\Downloads\GameBingoQuiz\bin\Release\CAROGAME.exe
+C:\Users\User\Downloads\GameBingoQuiz\bin\Release\CAROGAME.pdb
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.csprojAssemblyReference.cache
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.Form1.resources
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.Form2.resources
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.Properties.Resources.resources
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.csproj.GenerateResource.cache
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.exe
+C:\Users\User\Downloads\GameBingoQuiz\obj\Release\CAROGAME.pdb

@@ -17,15 +17,5 @@ namespace CAROGAME
             this.Name = name;
             this.Mark = mark;
         }
-
-        /*private Color mark;
-        public Color Mark { get => mark; set => mark = value; }*/
-
-
-        /* public Player(string name, Color mark)
-         {
-             this.Name = name;
-             this.Mark = mark;
-         }*/
     }
 }
