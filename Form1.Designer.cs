@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLAN = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
             this.playerturn = new System.Windows.Forms.TextBox();
@@ -37,8 +37,8 @@
             this.picturematch = new System.Windows.Forms.PictureBox();
             this.logocarogame = new System.Windows.Forms.Panel();
             this.panelchessboard = new System.Windows.Forms.Panel();
+            this.tmCountDown = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturematch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +46,6 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.btnLAN);
             this.panel3.Controls.Add(this.txbIP);
             this.panel3.Location = new System.Drawing.Point(655, 275);
@@ -54,18 +53,9 @@
             this.panel3.Size = new System.Drawing.Size(253, 160);
             this.panel3.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox1.Location = new System.Drawing.Point(90, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnLAN
             // 
-            this.btnLAN.Location = new System.Drawing.Point(78, 128);
+            this.btnLAN.Location = new System.Drawing.Point(67, 80);
             this.btnLAN.Name = "btnLAN";
             this.btnLAN.Size = new System.Drawing.Size(95, 29);
             this.btnLAN.TabIndex = 2;
@@ -75,10 +65,13 @@
             // 
             // txbIP
             // 
-            this.txbIP.Location = new System.Drawing.Point(37, 103);
+            this.txbIP.Location = new System.Drawing.Point(25, 38);
             this.txbIP.Name = "txbIP";
-            this.txbIP.Size = new System.Drawing.Size(180, 20);
+            this.txbIP.ReadOnly = true;
+            this.txbIP.Size = new System.Drawing.Size(167, 20);
             this.txbIP.TabIndex = 1;
+            this.txbIP.Text = "127.0.0.1";
+            this.txbIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // playerturn
             // 
@@ -132,6 +125,10 @@
             this.panelchessboard.Size = new System.Drawing.Size(295, 289);
             this.panelchessboard.TabIndex = 0;
             // 
+            // tmCountDown
+            // 
+            this.tmCountDown.Tick += new System.EventHandler(this.tmCountDown_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,10 +145,9 @@
             this.Controls.Add(this.logocarogame);
             this.DoubleBuffered = true;
             this.Name = "Form1";
-            this.Text = "Q&A CARO GAME";
+            this.Text = "BINGO QUIZ";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturematch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -165,15 +161,14 @@
         private System.Windows.Forms.TextBox txbIP;
         private System.Windows.Forms.TextBox playerturn;
         private System.Windows.Forms.ProgressBar prcbCountDown;
-        private System.Windows.Forms.Timer tmCoolDown;
         private System.Windows.Forms.PictureBox picturematch;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelchessboard;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.Timer tmCountDown;
     }
 }
 

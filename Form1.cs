@@ -29,11 +29,11 @@ namespace CAROGAME
             
             Chessboard.Drawchessboard();
 
-            prcbCountDown.Step = Constains.COOL_DOWN_STEP;
-            prcbCountDown.Maximum = Constains.COOL_DOWN_TIME;
+            prcbCountDown.Step = Constains.COUNT_DOWN_STEP;
+            prcbCountDown.Maximum = Constains.COUNT_DOWN_TIME;
             prcbCountDown.Value = 0;
 
-            tmCoolDown.Interval = Constains.COOL_DOWN_INTERVAL;
+            tmCountDown.Interval = Constains.COUNT_DOWN_INTERVAL;
 
             socket = new SocketManager();
 
@@ -44,7 +44,7 @@ namespace CAROGAME
 
         void EndGame()
         {
-            tmCoolDown.Stop();
+            tmCountDown.Stop();
             panelchessboard.Enabled = false;
             undoToolStripMenuItem.Enabled = false;
             MessageBox.Show("Kết thúc");
@@ -53,7 +53,7 @@ namespace CAROGAME
         void NewGame()
         {
             prcbCountDown.Value = 0;
-            tmCoolDown.Stop();
+            tmCountDown.Stop();
             undoToolStripMenuItem.Enabled = true;
             Chessboard.Drawchessboard();
         }
@@ -71,7 +71,7 @@ namespace CAROGAME
 
         void ChessBoard_PlayerMarked(object sender, EventArgs e)
         {
-            tmCoolDown.Start();
+            tmCountDown.Start();
             panelchessboard.Enabled = false;
             prcbCountDown.Value = 0;
 
@@ -88,16 +88,7 @@ namespace CAROGAME
             socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
-        private void tmCoolDown_Tick(object sender, EventArgs e)
-        {
-            prcbCountDown.PerformStep();
-
-            if (prcbCountDown.Value >= prcbCountDown.Maximum)
-            {
-                EndGame();
-                socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
-            }
-        }
+        
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -130,7 +121,16 @@ namespace CAROGAME
             }
         }
 
-               
+        private void tmCountDown_Tick(object sender, EventArgs e)
+        {
+            prcbCountDown.PerformStep();
+
+            if (prcbCountDown.Value >= prcbCountDown.Maximum)
+            {
+                EndGame();
+                socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
+            }
+        }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
@@ -179,7 +179,7 @@ namespace CAROGAME
                     {
                         prcbCountDown.Value = 0;
                         panelchessboard.Enabled = true;
-                        tmCoolDown.Start();
+                        tmCountDown.Start();
                         Chessboard.OtherPlayerMark(data.Point);
                         undoToolStripMenuItem.Enabled = true;
                     }));
@@ -195,7 +195,7 @@ namespace CAROGAME
                     MessageBox.Show("Hết giờ");
                     break;
                 case (int)SocketCommand.QUIT:
-                    tmCoolDown.Stop();
+                    tmCountDown.Stop();
                     MessageBox.Show("Người chơi đã thoát");
                     break;
                 default:

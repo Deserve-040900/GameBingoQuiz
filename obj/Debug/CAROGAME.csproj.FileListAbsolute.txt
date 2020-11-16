@@ -8,3 +8,11 @@ C:\Users\DELL\Documents\C#\CAROGAME\obj\Debug\CAROGAME.csproj.CoreCompileInputs.
 C:\Users\DELL\Documents\C#\CAROGAME\obj\Debug\CAROGAME.exe
 C:\Users\DELL\Documents\C#\CAROGAME\obj\Debug\CAROGAME.pdb
 C:\Users\DELL\Documents\C#\CAROGAME\obj\Debug\CAROGAME.Form2.resources
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.csprojAssemblyReference.cache
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.Form1.resources
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.Form2.resources
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.Properties.Resources.resources
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.csproj.GenerateResource.cache
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.exe
+C:\Users\DELL\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.pdb

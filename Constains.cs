@@ -14,8 +14,8 @@ namespace CAROGAME
         public static int chessboardwidth = 5;
         public static int chessboardheight = 4;
 
-        public static int COOL_DOWN_STEP = 100;
-        public static int COOL_DOWN_TIME = 10000;
-        public static int COOL_DOWN_INTERVAL = 100;
+        public static int COUNT_DOWN_STEP = 100;
+        public static int COUNT_DOWN_TIME = 10000;
+        public static int COUNT_DOWN_INTERVAL = 100;
     }
 }
