@@ -25,9 +25,7 @@ namespace CAROGAME
 
             Chessboard = new Chessmanager(panelchessboard, playerturn, picturematch);
             Chessboard.EndedGame += ChessBoard_EndedGame;
-            //Chessboard.PlayerMarked += ChessBoard_PlayerMarked;
-            
-            Chessboard.Drawchessboard();
+            Chessboard.PlayerMarked += ChessBoard_PlayerMarked;
 
             prcbCountDown.Step = Constains.COUNT_DOWN_STEP;
             prcbCountDown.Maximum = Constains.COUNT_DOWN_TIME;
@@ -35,12 +33,15 @@ namespace CAROGAME
 
             tmCountDown.Interval = Constains.COUNT_DOWN_INTERVAL;
 
+            tmCountDown.Start();
+
+            Chessboard.Drawchessboard();
+
             socket = new SocketManager();
 
             NewGame();
         }
 
-        #region Methods
 
         void EndGame()
         {
@@ -54,7 +55,7 @@ namespace CAROGAME
         {
             prcbCountDown.Value = 0;
             tmCountDown.Stop();
-            undoToolStripMenuItem.Enabled = true;
+            //undoToolStripMenuItem.Enabled = true;
             Chessboard.Drawchessboard();
         }
 
@@ -63,23 +64,29 @@ namespace CAROGAME
             Application.Exit();
         }
 
-        private void Undo()
-        {
-            Chessboard.Undo();
-            prcbCountDown.Value = 0;
-        }
+        //private void Undo()
+        //{
+        //    Chessboard.Undo();
+        //    prcbCountDown.Value = 0;
+        //}
+
+        //void ChessBoard_PlayerMarked(object sender, EventArgs e)
+        //{
+        //    tmCountDown.Start();
+        //    panelchessboard.Enabled = false;
+        //    prcbCountDown.Value = 0;
+
+        //    socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
+
+        //    undoToolStripMenuItem.Enabled = false;
+
+        //    Listen();
+        //}
 
         void ChessBoard_PlayerMarked(object sender, EventArgs e)
         {
             tmCountDown.Start();
-            panelchessboard.Enabled = false;
             prcbCountDown.Value = 0;
-
-            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
-
-            undoToolStripMenuItem.Enabled = false;
-
-            Listen();
         }
 
         void ChessBoard_EndedGame(object sender, EventArgs e)
@@ -88,8 +95,6 @@ namespace CAROGAME
             socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
-        
-
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewGame();
@@ -97,10 +102,10 @@ namespace CAROGAME
             panelchessboard.Enabled = true;
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Undo();
-        }
+        //private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    Undo();
+        //}
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -142,70 +147,68 @@ namespace CAROGAME
             }
         }
 
-        void Listen()
-        {
-            Thread listenThread = new Thread(() =>
-            {
-                try
-                {
-                    SocketData data = (SocketData)socket.Receive();
+        //void Listen()
+        //{
+        //    Thread listenThread = new Thread(() =>
+        //    {
+        //        try
+        //        {
+        //            SocketData data = (SocketData)socket.Receive();
 
-                    ProcessData(data);
-                }
-                catch (Exception e)
-                {
-                }
-            });
-            listenThread.IsBackground = true;
-            listenThread.Start();
-        }
+        //            ProcessData(data);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //        }
+        //    });
+        //    listenThread.IsBackground = true;
+        //    listenThread.Start();
+        //}
 
-        private void ProcessData(SocketData data)
-        {
-            switch (data.Command)
-            {
-                case (int)SocketCommand.NOTIFY:
-                    MessageBox.Show(data.Message);
-                    break;
-                case (int)SocketCommand.NEW_GAME:
-                    this.Invoke((MethodInvoker)(() =>
-                    {
-                        NewGame();
-                        panelchessboard.Enabled = false;
-                    }));
-                    break;
-                case (int)SocketCommand.SEND_POINT:
-                    this.Invoke((MethodInvoker)(() =>
-                    {
-                        prcbCountDown.Value = 0;
-                        panelchessboard.Enabled = true;
-                        tmCountDown.Start();
-                        Chessboard.OtherPlayerMark(data.Point);
-                        undoToolStripMenuItem.Enabled = true;
-                    }));
-                    break;
-                case (int)SocketCommand.UNDO:
-                    Undo();
-                    prcbCountDown.Value = 0;
-                    break;
-                case (int)SocketCommand.END_GAME:
-                    MessageBox.Show("Đã 5 con trên 1 hàng");
-                    break;
-                case (int)SocketCommand.TIME_OUT:
-                    MessageBox.Show("Hết giờ");
-                    break;
-                case (int)SocketCommand.QUIT:
-                    tmCountDown.Stop();
-                    MessageBox.Show("Người chơi đã thoát");
-                    break;
-                default:
-                    break;
-            }
+        //private void ProcessData(SocketData data)
+        //{
+        //    switch (data.Command)
+        //    {
+        //        case (int)SocketCommand.NOTIFY:
+        //            MessageBox.Show(data.Message);
+        //            break;
+        //        case (int)SocketCommand.NEW_GAME:
+        //            this.Invoke((MethodInvoker)(() =>
+        //            {
+        //                NewGame();
+        //                panelchessboard.Enabled = false;
+        //            }));
+        //            break;
+        //        case (int)SocketCommand.SEND_POINT:
+        //            this.Invoke((MethodInvoker)(() =>
+        //            {
+        //                prcbCountDown.Value = 0;
+        //                panelchessboard.Enabled = true;
+        //                tmCountDown.Start();
+        //                Chessboard.OtherPlayerMark(data.Point);
+        //                undoToolStripMenuItem.Enabled = true;
+        //            }));
+        //            break;
+        //        case (int)SocketCommand.UNDO:
+        //            Undo();
+        //            prcbCountDown.Value = 0;
+        //            break;
+        //        case (int)SocketCommand.END_GAME:
+        //            MessageBox.Show("Đã 5 con trên 1 hàng");
+        //            break;
+        //        case (int)SocketCommand.TIME_OUT:
+        //            MessageBox.Show("Hết giờ");
+        //            break;
+        //        case (int)SocketCommand.QUIT:
+        //            tmCountDown.Stop();
+        //            MessageBox.Show("Người chơi đã thoát");
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    Listen();
+        //}
 
-            Listen();
-        }
-
-        #endregion
 
         private void btnLAN_Click(object sender, EventArgs e)
         {
@@ -246,18 +249,18 @@ namespace CAROGAME
             //    socket.Send("Thông tin từ Client");
             //}
 
-            if (!socket.ConnectServer())
-            {
-                socket.isServer = true;
-                panelchessboard.Enabled = true;
-                socket.CreateServer();
-            }
-            else
-            {
-                socket.isServer = false;
-                panelchessboard.Enabled = false;
-                Listen();
-            }
+            //if (!socket.ConnectServer())
+            //{
+            //    socket.isServer = true;
+            //    panelchessboard.Enabled = true;
+            //    socket.CreateServer();
+            //}
+            //else
+            //{
+            //    socket.isServer = false;
+            //    panelchessboard.Enabled = false;
+            //    Listen();
+            //}
         }
     }
 }
