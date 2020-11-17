@@ -121,9 +121,6 @@
   <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mark background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mark background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="chessdrawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chessdrawing.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,14 +130,14 @@
   <data name="caro board2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caro board2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="caro board" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\caro board.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="background board" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background board.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button color.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="caro game logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\caro game logo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="X LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\X LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +151,11 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CARO LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CARO LOGO1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mark background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mark background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="O LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\O LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FG_circlesymbol_RGB (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FG_circlesymbol_RGB (3).png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,14 +166,17 @@
   <data name="FG_circlesymbol_RGB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FG_circlesymbol_RGB.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="O LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\O LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CARO LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CARO LOGO1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="caro board" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\caro board.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background menu.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="caro game logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\caro game logo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="125341518_2718673668383698_7625456457369883024_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\125341518_2718673668383698_7625456457369883024_n.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

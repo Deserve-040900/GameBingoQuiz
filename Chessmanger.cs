@@ -36,8 +36,8 @@ namespace CAROGAME
             set { matrix = value; }
         }
 
-        private event EventHandler<ButtonClickEvent> playerMarked;
-        public event EventHandler<ButtonClickEvent> PlayerMarked
+        private event EventHandler playerMarked;
+        public event EventHandler PlayerMarked
         {
             add
             {
@@ -125,11 +125,11 @@ namespace CAROGAME
 
                     oldbutton = btn;
 
-                    btn.FlatStyle = FlatStyle.Flat;
-                    //btn.FlatAppearance.BorderColor = Color.White;
-                    btn.FlatAppearance.BorderSize = 0;
-                    btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
-                    btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    //btn.FlatStyle = FlatStyle.Standard;
+                    ////btn.FlatAppearance.BorderColor = Color.White;
+                    //btn.FlatAppearance.BorderSize = 1;
+                    //btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    //btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 }
                 oldbutton.Location = new Point(0, oldbutton.Location.Y + Constains.chessheight);
                 oldbutton.Width = 0;
@@ -138,10 +138,10 @@ namespace CAROGAME
             }
         }
 
-        private void Btn_Click(object sender, EventArgs e)// uy thac mot cai event cho button
+        private void Btn_Click(object sender, EventArgs e)
         {
 
-            Button btn = sender as Button; // day chinh la button ma ban click vo
+            Button btn = sender as Button; 
              if (btn.BackgroundImage != null)
                 return;
             Mark(btn);
@@ -149,7 +149,7 @@ namespace CAROGAME
 
             if (playerMarked != null)
             {
-                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
+                playerMarked(this, new EventArgs());
             }   
 
             if (isEndGame(btn))
@@ -158,26 +158,26 @@ namespace CAROGAME
             }
         }
 
-        public void OtherPlayerMark(Point point)
-        {
-            Button btn = Matrix[point.Y][point.X];
+        //public void OtherPlayerMark(Point point)
+        //{
+        //    Button btn = Matrix[point.Y][point.X];
 
-            if (btn.BackgroundImage != null)
-                return;
+        //    if (btn.BackgroundImage != null)
+        //        return;
 
-            Mark(btn);
+        //    Mark(btn);
 
-            PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), currentplayer));
+        //    PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), currentplayer));
 
-            currentplayer = currentplayer == 1 ? 0 : 1;
+        //    currentplayer = currentplayer == 1 ? 0 : 1;
 
-            ChangePlayer();
+        //    ChangePlayer();
 
-            if (isEndGame(btn))
-            {
-                EndGame();
-            }
-        }
+        //    if (isEndGame(btn))
+        //    {
+        //        EndGame();
+        //    }
+        //}
 
         private void EndGame()
         {
@@ -272,7 +272,7 @@ namespace CAROGAME
             Point point = GetChessPoint(btn);
 
             int countTop = 0;
-            for (int i = point.Y; i >= 0; i--)
+            for (int i = point.Y-1; i >= 0; i--)
             {
                 if (Matrix[i][point.X].BackgroundImage == btn.BackgroundImage)
                 {
@@ -327,6 +327,7 @@ namespace CAROGAME
                     break;
             }
 
+
             return countTop + countBottom == 4;
         }
         private bool isEndSub(Button btn)
@@ -361,6 +362,7 @@ namespace CAROGAME
                     break;
             }
 
+
             return countTop + countBottom == 4;
         }
 
@@ -379,25 +381,25 @@ namespace CAROGAME
             Playername.Text = Player[currentplayer].Name;
             Playermark.BackgroundImage = Player[currentplayer].Mark;
 
-            //Playermark.BackColor = Player[currentplayer].Mark;
+            
         }
 
     }
     #endregion
-    public class ButtonClickEvent : EventArgs
-    {
-        private Point clickedPoint;
+    //public class ButtonClickEvent : EventArgs
+    //{
+    //    private Point clickedPoint;
 
-        public Point ClickedPoint
-        {
-            get { return clickedPoint; }
-            set { clickedPoint = value; }
-        }
+    //    public Point ClickedPoint
+    //    {
+    //        get { return clickedPoint; }
+    //        set { clickedPoint = value; }
+    //    }
 
-        public ButtonClickEvent(Point point)
-        {
-            this.ClickedPoint = point;
-        }
-    }
+    //    public ButtonClickEvent(Point point)
+    //    {
+    //        this.ClickedPoint = point;
+    //    }
+    //}
 
 }

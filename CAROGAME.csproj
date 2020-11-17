@@ -169,5 +169,8 @@
   <ItemGroup>
     <None Include="Resources\caro game logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125341518_2718673668383698_7625456457369883024_n.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

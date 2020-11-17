@@ -26,3 +26,5 @@ C:\Users\User\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.exe
 C:\Users\User\Downloads\GameBingoQuiz\obj\Debug\CAROGAME.pdb
 C:\Users\User\Downloads\GameBingoQuiz\bin\Debug\CAROGAME.exe
 C:\Users\User\Downloads\GameBingoQuiz\bin\Debug\CAROGAME.pdb
+C:\Users\DELL\Downloads\GameBingoQuiz\bin\Debug\CAROGAME.exe
+C:\Users\DELL\Downloads\GameBingoQuiz\bin\Debug\CAROGAME.pdb
